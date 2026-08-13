@@ -1,0 +1,9 @@
+{
+  "device_name": "Cambium",
+  "device_type": "ap",
+  "path": "D:\\Projects\\Cemtics\\CemticsDevelopment\\SNMPSimulator\\sim_engine\\src\\uploaded_mibs\\20260813T112615325015Z",
+  "uploaded_at": "2026-08-13T11:26:15.371107+00:00",
+  "module_names": [
+    "CAMBIUM-PMP80211-MIB"
+  ]
+}

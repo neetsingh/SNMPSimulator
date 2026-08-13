@@ -1,0 +1,13 @@
+{
+  "devices": [
+    {"name": "core-r1", "device": "router"},
+    {"name": "edge-sw1", "device": "switch"},
+    {"name": "ap-cambium-1", "vendor": "cambium"},
+    {"name": "ptp-radwin-1", "vendor": "radwin"}
+  ],
+  "topology": [
+    {"source": "core-r1", "target": "edge-sw1", "link_type": "ethernet"},
+    {"source": "edge-sw1", "target": "ap-cambium-1", "link_type": "wireless"},
+    {"source": "edge-sw1", "target": "ptp-radwin-1", "link_type": "wireless"}
+  ]
+}

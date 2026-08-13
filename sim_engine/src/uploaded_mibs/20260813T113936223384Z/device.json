@@ -1,0 +1,9 @@
+{
+  "device_name": "Radwin",
+  "device_type": "ap",
+  "path": "D:\\Projects\\Cemtics\\CemticsDevelopment\\SNMPSimulator\\sim_engine\\src\\uploaded_mibs\\20260813T113936223384Z",
+  "uploaded_at": "2026-08-13T11:39:36.311424+00:00",
+  "module_names": [
+    "RADWIN-MIB-WINLINK1000"
+  ]
+}

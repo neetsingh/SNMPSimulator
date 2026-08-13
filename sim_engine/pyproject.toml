@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "snmpsim"
+version = "0.1.0"
+description = "Python SNMP simulator for common network devices and MIB-driven behavior"
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Cemtics" }]
+license = { text = "MIT" }
+dependencies = [
+	"fastapi>=0.115.0",
+	"uvicorn>=0.30.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+
+[project.scripts]
+snmpsim-api = "api:run"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+py-modules = ["api", "device", "mib", "simulator"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]

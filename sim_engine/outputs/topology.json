@@ -1,0 +1,57 @@
+{
+  "nodes": [
+    {
+      "name": "core-r1",
+      "vendor": "generic",
+      "device_type": "router"
+    },
+    {
+      "name": "edge-sw1",
+      "vendor": "generic",
+      "device_type": "switch"
+    },
+    {
+      "name": "ap-cambium-1",
+      "vendor": "cambium",
+      "device_type": "wireless_ap"
+    },
+    {
+      "name": "ptp-radwin-1",
+      "vendor": "radwin",
+      "device_type": "wireless_link"
+    }
+  ],
+  "links": [
+    {
+      "source": "core-r1",
+      "target": "edge-sw1",
+      "link_type": "ethernet"
+    },
+    {
+      "source": "edge-sw1",
+      "target": "ap-cambium-1",
+      "link_type": "wireless"
+    },
+    {
+      "source": "edge-sw1",
+      "target": "ptp-radwin-1",
+      "link_type": "wireless"
+    }
+  ],
+  "neighbors": {
+    "core-r1": [
+      "edge-sw1"
+    ],
+    "edge-sw1": [
+      "core-r1",
+      "ap-cambium-1",
+      "ptp-radwin-1"
+    ],
+    "ap-cambium-1": [
+      "edge-sw1"
+    ],
+    "ptp-radwin-1": [
+      "edge-sw1"
+    ]
+  }
+}
