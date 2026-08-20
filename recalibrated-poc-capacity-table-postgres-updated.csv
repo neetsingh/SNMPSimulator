@@ -1,0 +1,14 @@
+component,instance_type,min_replicas,max_replicas,cpu,memory,storage,purpose
+eks-system-nodegroup,t3.small,1,2,2 vCPU per node,2 GiB per node,EBS root 30 GiB gp3 per node,Hosts the smallest viable set of cluster system services needed to run the POC.
+eks-app-nodegroup,t3.medium,1,2,2 vCPU per node,4 GiB per node,EBS root 40 GiB gp3 per node,Runs the POC application workloads and gives more headroom for GeoServer and API processing.
+eks-spot-burst-nodegroup,not required,0,0,N/A,N/A,N/A,Optional burst capacity that can be omitted for a minimal proof of concept.
+angular-frontend-pod,N/A (container),1,1,50m request / 200m limit,64Mi request / 128Mi limit,1 GiB ephemeral per pod,Serves the UI for basic POC user flows.
+nodejs-api-pod,N/A (container),1,2,200m request / 500m limit,384Mi request / 768Mi limit,2 GiB ephemeral per pod,Provides the backend API for the POC and handles moderate request and data orchestration load.
+geoserver,N/A (container),1,2,500m request / 1000m limit,1Gi request / 2Gi limit,4 GiB ephemeral per pod,Provides geospatial map services and handles rendering and catalog access for the 300 GB raw dataset.
+ingress-controller-pod,N/A (container),1,1,100m request / 200m limit,128Mi request / 256Mi limit,512Mi ephemeral per pod,Exposes the POC services externally through HTTP/HTTPS.
+coredns-pod,N/A (container),2,2,50m request / 100m limit,64Mi request / 128Mi limit,256Mi ephemeral per pod,Provides internal service discovery for the cluster.
+aws-load-balancer-controller-pod,N/A (container),1,1,50m request / 100m limit,64Mi request / 128Mi limit,256Mi ephemeral per pod,Manages the load balancer resources required by the ingress.
+rds-postgresql-multiaz,db.r6g.xlarge,1,2,4 vCPU,32 GiB,600-800 GiB gp3 (autoscaling enabled),Stores the 300 GB raw table and ~100 GB aggregate table with room for indexes, WAL, vacuum overhead, and future growth.
+elasticache-redis,cache.t4g.small,0,1,N/A,N/A,Optional / not required for POC,Only needed if the POC requires caching, session sharing, or response acceleration.
+ebs-persistent-volumes,gp3,1,2,N/A,N/A,100-150 GiB per PVC,Provides durable storage for application state and any locally cached geospatial assets.
+ecr-repository,Managed Service,1,1,N/A,N/A,Retention policy for POC images,Stores the container image used to deploy the POC.
