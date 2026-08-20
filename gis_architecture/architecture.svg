@@ -178,7 +178,7 @@
   <path class="flow-data" d="M 1150 755 L 1195 755 L 1195 900 L 1240 900"/>
   <!-- Service Mesh A right → S3 left (elbow right then align to S3 cy) -->
   <path class="flow-data" d="M 1150 755 L 1200 755 L 1200 750 L 1540 750"/>
-  <!-- Redis right → Redshift left (direct horizontal) -->
+  <!-- Redis right → Redshift left (direct horizontal, aligned at cy=900) -->
   <path class="flow-data" d="M 1525 900 L 1540 900"/>
   <!-- S3 bottom → Redshift top (direct vertical) -->
   <path class="flow-data" d="M 1682 815 L 1682 835"/>
