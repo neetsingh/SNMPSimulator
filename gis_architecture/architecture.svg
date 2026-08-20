@@ -1,252 +1,142 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-label="GIS application integrated into AWS Landing Zone 4.5">
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440" viewBox="0 0 2560 1440" role="img" aria-label="Workload account categorized architecture: Expose, NonExpose, Secure">
   <defs>
     <style>
       .title { font: 700 34px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
       .subtitle { font: 500 18px 'Segoe UI', Arial, sans-serif; fill: #334155; }
-      .section { font: 700 20px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
-      .label { font: 600 15px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
-      .small { font: 500 13px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
+      .section { font: 700 22px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .label { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
+      .small { font: 600 13px 'Segoe UI', Arial, sans-serif; fill: #1e293b; }
       .tiny { font: 500 12px 'Segoe UI', Arial, sans-serif; fill: #334155; }
-      .account-title { font: 700 18px 'Segoe UI', Arial, sans-serif; fill: #111827; }
-      .zone-title { font: 700 14px 'Segoe UI', Arial, sans-serif; fill: #0f172a; }
-      .aws-boundary { fill: #f8fafc; stroke: #64748b; stroke-width: 3; }
-      .account { fill: #ffffff; stroke: #334155; stroke-width: 2.5; stroke-dasharray: 10 6; }
-      .network { fill: #dbeafe; stroke: #1d4ed8; stroke-width: 2; }
-      .compute { fill: #fee2e2; stroke: #dc2626; stroke-width: 2; }
-      .storage { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; }
-      .database { fill: #ede9fe; stroke: #7c3aed; stroke-width: 2; }
-      .security { fill: #fef3c7; stroke: #d97706; stroke-width: 2; }
-      .analytics { fill: #fae8ff; stroke: #a21caf; stroke-width: 2; }
-      .lane { fill: #f8fafc; stroke: #94a3b8; stroke-width: 1.5; stroke-dasharray: 6 4; }
+      .account { fill: #ffffff; stroke: #334155; stroke-width: 3; stroke-dasharray: 10 6; }
+      .expose { fill: #ffedd5; stroke: #ea580c; stroke-width: 2.5; }
+      .nonexpose { fill: #fef3c7; stroke: #ca8a04; stroke-width: 2.5; }
+      .secure { fill: #dcfce7; stroke: #16a34a; stroke-width: 2.5; }
+      .box-net { fill: #dbeafe; stroke: #2563eb; stroke-width: 2; }
+      .box-comp { fill: #fee2e2; stroke: #dc2626; stroke-width: 2; }
+      .box-db { fill: #ede9fe; stroke: #7c3aed; stroke-width: 2; }
+      .box-store { fill: #dcfce7; stroke: #16a34a; stroke-width: 2; }
       .flow { stroke: #2563eb; stroke-width: 2.5; fill: none; marker-end: url(#arrowBlue); }
-      .flow-sec { stroke: #b45309; stroke-width: 2.5; fill: none; marker-end: url(#arrowAmber); stroke-dasharray: 8 5; }
       .flow-data { stroke: #15803d; stroke-width: 2.5; fill: none; marker-end: url(#arrowGreen); }
-      .flow-obs { stroke: #7c3aed; stroke-width: 2.5; fill: none; marker-end: url(#arrowPurple); stroke-dasharray: 7 4; }
+      .flow-sec { stroke: #b45309; stroke-width: 2.5; fill: none; marker-end: url(#arrowAmber); stroke-dasharray: 7 5; }
     </style>
     <marker id="arrowBlue" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#2563eb"/></marker>
-    <marker id="arrowAmber" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#b45309"/></marker>
     <marker id="arrowGreen" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#15803d"/></marker>
-    <marker id="arrowPurple" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#7c3aed"/></marker>
+    <marker id="arrowAmber" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0,0 10,4 0,8" fill="#b45309"/></marker>
   </defs>
 
   <rect x="0" y="0" width="2560" height="1440" fill="#f1f5f9"/>
-  <text x="50" y="58" class="title">GIS Application Architecture in AWS Landing Zone 4.5</text>
-  <text x="50" y="88" class="subtitle">PowerPoint-ready reference design • Multi-account AWS foundation • Multi-AZ high availability</text>
+  <text x="60" y="62" class="title">Workload Account Architecture — Categorized View</text>
+  <text x="60" y="92" class="subtitle">Focus area from snapshot: Expose • NonExpose • Secure (EKS deployment, Angular frontend, Node.js API)</text>
 
-  <rect x="40" y="120" width="1860" height="1260" rx="14" class="aws-boundary"/>
-  <text x="60" y="153" class="section">AWS Landing Zone 4.5 Foundation Layer</text>
+  <rect x="50" y="130" width="2460" height="1240" rx="14" class="account"/>
+  <text x="78" y="166" class="section">Workload Account — GIS Application VPC (Multi-AZ)</text>
 
-  <!-- Shared Services Account -->
-  <rect x="70" y="180" width="560" height="250" rx="10" class="account"/>
-  <text x="90" y="210" class="account-title">Shared Services Account</text>
-  <rect x="90" y="228" width="160" height="74" rx="8" class="network"/>
-  <text x="100" y="255" class="label">CloudFront CDN</text>
-  <text x="100" y="275" class="tiny">Global map tile delivery</text>
-  <rect x="270" y="228" width="160" height="74" rx="8" class="network"/>
-  <text x="280" y="255" class="label">Route 53 DNS</text>
-  <text x="280" y="275" class="tiny">Public + internal routing</text>
-  <rect x="450" y="228" width="160" height="74" rx="8" class="compute"/>
-  <text x="460" y="255" class="label">API Services</text>
-  <text x="460" y="275" class="tiny">Shared API endpoints</text>
-  <rect x="90" y="322" width="520" height="88" rx="8" class="network"/>
-  <text x="102" y="350" class="small">Transit Gateway attachment + shared service endpoints</text>
-  <text x="102" y="372" class="tiny">DNS, CDN, API services consumed by workload account</text>
+  <!-- EXPOSE -->
+  <rect x="90" y="200" width="2320" height="260" rx="12" class="expose"/>
+  <rect x="2250" y="210" width="140" height="38" rx="6" fill="#dc2626"/>
+  <text x="2285" y="236" text-anchor="middle" class="label" fill="#ffffff">Expose</text>
 
-  <!-- Security & Logging Account -->
-  <rect x="650" y="180" width="610" height="250" rx="10" class="account"/>
-  <text x="670" y="210" class="account-title">Security &amp; Logging Account</text>
-  <rect x="670" y="228" width="138" height="74" rx="8" class="security"/>
-  <text x="680" y="255" class="label">CloudWatch</text>
-  <text x="680" y="275" class="tiny">Logs + metrics</text>
-  <rect x="822" y="228" width="138" height="74" rx="8" class="security"/>
-  <text x="832" y="255" class="label">GuardDuty</text>
-  <text x="832" y="275" class="tiny">Threat detection</text>
-  <rect x="974" y="228" width="138" height="74" rx="8" class="security"/>
-  <text x="984" y="255" class="label">CloudTrail</text>
-  <text x="984" y="275" class="tiny">Audit events</text>
-  <rect x="1126" y="228" width="118" height="74" rx="8" class="security"/>
-  <text x="1136" y="255" class="label">Security Hub</text>
-  <text x="1136" y="275" class="tiny">Findings</text>
-  <rect x="670" y="322" width="574" height="88" rx="8" class="security"/>
-  <text x="682" y="350" class="small">VPC Flow Logs, container logs, API logs, database audit streams</text>
-  <text x="682" y="372" class="tiny">Centralized observability and security analytics</text>
+  <rect x="130" y="270" width="360" height="90" rx="10" class="box-net"/>
+  <text x="160" y="323" class="label">Internet Gateway</text>
 
-  <!-- Log Archive -->
-  <rect x="1280" y="180" width="590" height="250" rx="10" class="account"/>
-  <text x="1300" y="210" class="account-title">Log Archive Account</text>
-  <rect x="1300" y="240" width="550" height="160" rx="10" class="storage"/>
-  <text x="1320" y="275" class="label">Centralized immutable log storage</text>
-  <text x="1320" y="305" class="small">CloudTrail archives • GuardDuty findings • VPC flow logs • App logs</text>
-  <text x="1320" y="335" class="small">Retention and compliance controls for audit requirements</text>
+  <rect x="530" y="270" width="420" height="90" rx="10" class="box-net"/>
+  <text x="650" y="315" class="label">ALB / NLB</text>
+  <text x="650" y="336" class="tiny">Public entry with WAF</text>
 
-  <!-- Workload Account -->
-  <rect x="70" y="450" width="1800" height="760" rx="10" class="account"/>
-  <text x="90" y="480" class="account-title">Workload Account – GIS Application VPC (Multi-AZ)</text>
+  <rect x="990" y="270" width="300" height="90" rx="10" class="box-net"/>
+  <text x="1065" y="323" class="label">API Gateway</text>
 
-  <rect x="95" y="500" width="1750" height="120" rx="8" class="network"/>
-  <text x="110" y="525" class="zone-title">Public Subnet Zone (Internet &amp; Access Layer)</text>
-  <rect x="120" y="540" width="180" height="60" rx="7" class="network"/>
-  <text x="132" y="575" class="label">Internet Gateway</text>
-  <rect x="330" y="540" width="260" height="60" rx="7" class="network"/>
-  <text x="344" y="568" class="label">Application Load Balancer</text>
-  <text x="344" y="586" class="tiny">AWS WAF attached</text>
-  <rect x="620" y="540" width="220" height="60" rx="7" class="network"/>
-  <text x="634" y="568" class="label">Route 53 Routing</text>
-  <text x="634" y="586" class="tiny">Alias to ALB</text>
+  <rect x="1330" y="270" width="340" height="90" rx="10" class="box-net"/>
+  <text x="1410" y="315" class="label">Route 53 Alias</text>
+  <text x="1410" y="336" class="tiny">DNS routing to ALB</text>
 
-  <rect x="95" y="635" width="1100" height="560" rx="8" class="compute"/>
-  <text x="112" y="660" class="zone-title">Private Subnet Zone – EKS Cluster &amp; GIS Services</text>
+  <rect x="1710" y="270" width="340" height="90" rx="10" class="box-net"/>
+  <text x="1785" y="315" class="label">Angular Frontend</text>
+  <text x="1785" y="336" class="tiny">Ingress exposed app</text>
 
-  <rect x="115" y="675" width="1060" height="245" rx="8" class="lane"/>
-  <text x="128" y="700" class="small">Availability Zone A</text>
-  <rect x="140" y="715" width="240" height="80" rx="8" class="compute"/>
-  <text x="154" y="748" class="label">GeoServer Pod</text>
-  <rect x="400" y="715" width="240" height="80" rx="8" class="compute"/>
-  <text x="416" y="748" class="label">GIS API Pod</text>
-  <rect x="660" y="715" width="240" height="80" rx="8" class="compute"/>
-  <text x="672" y="748" class="label">GIS WebApp Pod</text>
-  <rect x="920" y="715" width="230" height="80" rx="8" class="compute"/>
-  <text x="934" y="746" class="label">Service Mesh</text>
-  <text x="934" y="765" class="tiny">Pod networking</text>
+  <!-- NON EXPOSE -->
+  <rect x="90" y="490" width="2320" height="380" rx="12" class="nonexpose"/>
+  <rect x="2165" y="500" width="225" height="38" rx="6" fill="#f59e0b"/>
+  <text x="2277" y="526" text-anchor="middle" class="label" fill="#111827">NonExpose</text>
 
-  <rect x="115" y="935" width="1060" height="245" rx="8" class="lane"/>
-  <text x="128" y="960" class="small">Availability Zone B</text>
-  <rect x="140" y="975" width="240" height="80" rx="8" class="compute"/>
-  <text x="154" y="1008" class="label">GeoServer Pod</text>
-  <rect x="400" y="975" width="240" height="80" rx="8" class="compute"/>
-  <text x="416" y="1008" class="label">GIS API Pod</text>
-  <rect x="660" y="975" width="240" height="80" rx="8" class="compute"/>
-  <text x="672" y="1008" class="label">GIS WebApp Pod</text>
-  <rect x="920" y="975" width="230" height="80" rx="8" class="compute"/>
-  <text x="934" y="1006" class="label">Service Mesh</text>
-  <text x="934" y="1025" class="tiny">Pod networking</text>
+  <rect x="130" y="560" width="560" height="270" rx="10" class="box-comp"/>
+  <text x="150" y="588" class="label">EKS Cluster</text>
 
-  <rect x="1220" y="635" width="625" height="560" rx="8" class="database"/>
-  <text x="1238" y="660" class="zone-title">Data Persistence, Analytics &amp; Registry</text>
+  <rect x="160" y="615" width="240" height="80" rx="8" class="box-comp"/>
+  <text x="205" y="662" class="label">Node.js API Pods</text>
 
-  <rect x="1240" y="685" width="285" height="130" rx="8" class="database"/>
-  <text x="1252" y="716" class="label">RDS PostgreSQL (Multi-AZ)</text>
-  <text x="1252" y="738" class="tiny">PostGIS + read replicas</text>
-  <text x="1252" y="758" class="tiny">Automated backups</text>
+  <rect x="430" y="615" width="230" height="80" rx="8" class="box-comp"/>
+  <text x="470" y="662" class="label">Angular Pods</text>
 
-  <rect x="1540" y="685" width="285" height="130" rx="8" class="storage"/>
-  <text x="1552" y="716" class="label">S3 Geospatial Data</text>
-  <text x="1552" y="738" class="tiny">Shapefile, KML, GeoJSON</text>
-  <text x="1552" y="758" class="tiny">Versioning + VPC endpoint</text>
+  <rect x="160" y="715" width="500" height="80" rx="8" class="box-comp"/>
+  <text x="300" y="762" class="label">Service Mesh / Internal Services</text>
 
-  <rect x="1240" y="835" width="285" height="130" rx="8" class="storage"/>
-  <text x="1252" y="866" class="label">ElastiCache Redis</text>
-  <text x="1252" y="888" class="tiny">Map tile cache + sessions</text>
-  <text x="1252" y="908" class="tiny">Multi-AZ cluster</text>
+  <rect x="730" y="560" width="350" height="270" rx="10" class="box-comp"/>
+  <text x="760" y="588" class="label">ECS Cluster (optional)</text>
+  <rect x="760" y="635" width="290" height="160" rx="8" class="box-comp"/>
+  <text x="810" y="722" class="label">Container Workloads</text>
 
-  <rect x="1540" y="835" width="285" height="130" rx="8" class="analytics"/>
-  <text x="1552" y="866" class="label">Amazon Redshift</text>
-  <text x="1552" y="888" class="tiny">Geospatial analytics</text>
-  <text x="1552" y="908" class="tiny">S3 warehouse integration</text>
+  <rect x="1120" y="560" width="420" height="270" rx="10" class="box-comp"/>
+  <text x="1150" y="588" class="label">Private API Tier</text>
+  <rect x="1150" y="635" width="360" height="160" rx="8" class="box-comp"/>
+  <text x="1245" y="722" class="label">Node.js API Services</text>
 
-  <rect x="1240" y="985" width="285" height="130" rx="8" class="storage"/>
-  <text x="1252" y="1016" class="label">EBS Volumes</text>
-  <text x="1252" y="1038" class="tiny">Persistent app storage</text>
+  <!-- SECURE -->
+  <rect x="90" y="900" width="2320" height="430" rx="12" class="secure"/>
+  <rect x="2258" y="910" width="132" height="38" rx="6" fill="#16a34a"/>
+  <text x="2324" y="936" text-anchor="middle" class="label" fill="#ffffff">Secure</text>
 
-  <rect x="1540" y="985" width="285" height="130" rx="8" class="compute"/>
-  <text x="1552" y="1016" class="label">Amazon ECR</text>
-  <text x="1552" y="1038" class="tiny">GIS service images</text>
+  <rect x="130" y="970" width="360" height="120" rx="10" class="box-store"/>
+  <text x="165" y="1038" class="label">ElastiCache / Memcached</text>
 
-  <!-- Connectivity foundation -->
-  <rect x="95" y="1230" width="1750" height="95" rx="8" class="network"/>
-  <text x="110" y="1265" class="label">Transit Gateway Hub Connectivity</text>
-  <text x="110" y="1288" class="small">Inter-account routing: Workload ↔ Shared Services ↔ Security/Logging ↔ Log Archive</text>
+  <rect x="530" y="970" width="420" height="120" rx="10" class="box-db"/>
+  <text x="620" y="1030" class="label">RDS Database (Multi-AZ)</text>
+  <text x="620" y="1052" class="tiny">PostgreSQL / PostGIS</text>
 
-  <!-- On-prem -->
-  <rect x="70" y="1335" width="850" height="35" rx="8" class="network"/>
-  <text x="88" y="1358" class="small">Trusted On-Premises Network via VPN / Direct Connect (GIS data sources &amp; enterprise users)</text>
+  <rect x="990" y="970" width="330" height="120" rx="10" class="box-db"/>
+  <text x="1065" y="1038" class="label">DocumentDB</text>
 
-  <!-- Elbow flows – corrected connector alignment -->
-  <!-- Public layer: Route 53 left → ALB right (horizontal) -->
-  <path class="flow" d="M 620 570 L 590 570"/>
-  <!-- Public layer: ALB left → Internet Gateway right (horizontal) -->
-  <path class="flow" d="M 330 570 L 300 570"/>
-  <!-- ALB bottom-center → GeoServer Pod A top (elbow down then left) -->
-  <path class="flow" d="M 460 600 L 460 635 L 260 635 L 260 715"/>
-  <!-- ALB bottom-center → GIS API Pod A top (elbow down then right) -->
-  <path class="flow" d="M 460 600 L 460 635 L 520 635 L 520 715"/>
-  <!-- ALB bottom-center → GIS WebApp Pod A top (elbow down then right) -->
-  <path class="flow" d="M 460 600 L 460 635 L 780 635 L 780 715"/>
-  <!-- Service Mesh A right → RDS left (elbow right then align to RDS cy) -->
-  <path class="flow-data" d="M 1150 755 L 1195 755 L 1195 750 L 1240 750"/>
-  <!-- Service Mesh A right → ElastiCache Redis left (elbow right then down) -->
-  <path class="flow-data" d="M 1150 755 L 1195 755 L 1195 900 L 1240 900"/>
-  <!-- Service Mesh A right → S3 left (elbow right then align to S3 cy) -->
-  <path class="flow-data" d="M 1150 755 L 1200 755 L 1200 750 L 1540 750"/>
-  <!-- Redis right → Redshift left (direct horizontal, aligned at cy=900) -->
-  <path class="flow-data" d="M 1525 900 L 1540 900"/>
-  <!-- S3 bottom → Redshift top (direct vertical) -->
-  <path class="flow-data" d="M 1682 815 L 1682 835"/>
-  <!-- Redshift bottom → ECR top (direct vertical) -->
-  <path class="flow-data" d="M 1682 965 L 1682 985"/>
-  <!-- ECR left → Service Mesh B right (elbow left then align to Service Mesh cy) -->
-  <path class="flow" d="M 1540 1050 L 1195 1050 L 1195 1015 L 1150 1015"/>
-  <!-- Security log export: GeoServer A bottom → CloudWatch bottom (elbow up then right) -->
-  <path class="flow-sec" d="M 260 795 L 260 410 L 739 410 L 739 302"/>
-  <!-- Security log export: GIS API A bottom → CloudTrail bottom (elbow up then right) -->
-  <path class="flow-sec" d="M 520 795 L 520 430 L 1043 430 L 1043 302"/>
-  <!-- Transit Gateway internal routing arrow -->
-  <path class="flow" d="M 950 1265 L 1300 1265"/>
-  <!-- On-Premises top → Transit Gateway bottom -->
-  <path class="flow" d="M 495 1335 L 495 1325"/>
-  <!-- Observability: GeoServer A bottom → CloudWatch bottom (metrics/logs) -->
-  <path class="flow-obs" d="M 260 795 L 260 450 L 670 450 L 670 302"/>
-  <!-- Observability: GIS API A bottom → GuardDuty bottom (threat detection) -->
-  <path class="flow-obs" d="M 520 795 L 520 460 L 891 460 L 891 302"/>
-  <!-- Observability: Service Mesh A top → Security Hub bottom (telemetry) -->
-  <path class="flow-obs" d="M 1035 715 L 1035 450 L 1185 450 L 1185 302"/>
+  <rect x="1360" y="970" width="400" height="120" rx="10" class="box-db"/>
+  <text x="1445" y="1038" class="label">OpenSearch Service</text>
 
-  <!-- Right legend -->
-  <rect x="1930" y="120" width="590" height="1260" rx="14" fill="#ffffff" stroke="#64748b" stroke-width="2.5"/>
-  <text x="1960" y="160" class="section">Legend &amp; Interpretation</text>
+  <rect x="1800" y="970" width="280" height="120" rx="10" class="box-store"/>
+  <text x="1880" y="1038" class="label">S3 Geospatial Data</text>
 
-  <text x="1960" y="200" class="label">Account Boundaries</text>
-  <rect x="1960" y="215" width="220" height="48" rx="8" class="account"/>
-  <text x="1975" y="244" class="small">AWS account boundary</text>
+  <rect x="130" y="1120" width="360" height="120" rx="10" class="box-store"/>
+  <text x="235" y="1188" class="label">EBS Volumes</text>
 
-  <text x="1960" y="290" class="label">Network Zones</text>
-  <rect x="1960" y="305" width="220" height="42" rx="6" class="network"/>
-  <text x="2190" y="332" class="tiny">Public / Routing Layer</text>
-  <rect x="1960" y="358" width="220" height="42" rx="6" class="compute"/>
-  <text x="2190" y="385" class="tiny">Private App Layer</text>
+  <rect x="530" y="1120" width="360" height="120" rx="10" class="box-comp"/>
+  <text x="640" y="1188" class="label">Amazon ECR</text>
 
-  <text x="1960" y="430" class="label">Service Categories</text>
-  <rect x="1960" y="446" width="28" height="24" class="network"/><text x="2000" y="463" class="tiny">Networking (Blue)</text>
-  <rect x="1960" y="478" width="28" height="24" class="compute"/><text x="2000" y="495" class="tiny">Compute/Containers (Orange-Red)</text>
-  <rect x="1960" y="510" width="28" height="24" class="storage"/><text x="2000" y="527" class="tiny">Storage (Green)</text>
-  <rect x="1960" y="542" width="28" height="24" class="database"/><text x="2000" y="559" class="tiny">Databases (Purple)</text>
-  <rect x="1960" y="574" width="28" height="24" class="security"/><text x="2000" y="591" class="tiny">Security/Monitoring (Amber)</text>
-  <rect x="1960" y="606" width="28" height="24" class="analytics"/><text x="2000" y="623" class="tiny">Analytics/Warehouse (Magenta)</text>
+  <!-- Flows -->
+  <path class="flow" d="M 490 315 L 530 315"/>
+  <path class="flow" d="M 950 315 L 990 315"/>
+  <path class="flow" d="M 1290 315 L 1330 315"/>
+  <path class="flow" d="M 1670 315 L 1710 315"/>
 
-  <text x="1960" y="660" class="label">Data Flow Indicators</text>
-  <line x1="1960" y1="680" x2="2120" y2="680" class="flow"/><text x="2130" y="686" class="tiny">Application/API traffic</text>
-  <line x1="1960" y1="710" x2="2120" y2="710" class="flow-data"/><text x="2130" y="716" class="tiny">Data movement &amp; persistence</text>
-  <line x1="1960" y1="740" x2="2120" y2="740" class="flow-sec"/><text x="2130" y="746" class="tiny">Security/audit log export</text>
-  <line x1="1960" y1="770" x2="2120" y2="770" class="flow-obs"/><text x="2130" y="776" class="tiny">Monitoring/telemetry streams</text>
+  <path class="flow" d="M 740 360 L 740 560 L 420 560 L 420 615"/>
+  <path class="flow" d="M 740 360 L 740 560 L 1330 560 L 1330 635"/>
 
-  <text x="1960" y="815" class="label">HA / DR Indicators</text>
-  <text x="1960" y="840" class="small">• Multi-AZ horizontal lanes for EKS workloads</text>
-  <text x="1960" y="863" class="small">• RDS Multi-AZ + read replicas + backups</text>
-  <text x="1960" y="886" class="small">• Redis Multi-AZ cluster</text>
-  <text x="1960" y="909" class="small">• S3 versioning and durable storage</text>
-  <text x="1960" y="932" class="small">• Transit Gateway for resilient account routing</text>
+  <path class="flow" d="M 1080 315 L 1080 560 L 1330 560 L 1330 635"/>
 
-  <text x="1960" y="975" class="label">Security Design Highlights</text>
-  <text x="1960" y="1000" class="small">• WAF in front of ALB</text>
-  <text x="1960" y="1023" class="small">• Private subnets for EKS, RDS, Redis</text>
-  <text x="1960" y="1046" class="small">• VPC endpoints for private AWS service access</text>
-  <text x="1960" y="1069" class="small">• GuardDuty + Security Hub + CloudTrail</text>
+  <path class="flow-data" d="M 1330 795 L 1330 930 L 740 930 L 740 970"/>
+  <path class="flow-data" d="M 1330 795 L 1330 930 L 310 930 L 310 970"/>
+  <path class="flow-data" d="M 1330 795 L 1330 930 L 1155 930 L 1155 970"/>
+  <path class="flow-data" d="M 1330 795 L 1330 930 L 1560 930 L 1560 970"/>
+  <path class="flow-data" d="M 1330 795 L 1330 930 L 1940 930 L 1940 970"/>
 
-  <text x="1960" y="1115" class="label">Output Suitability</text>
-  <text x="1960" y="1140" class="small">• Canvas: 2560×1440 (16:9 widescreen)</text>
-  <text x="1960" y="1163" class="small">• Vector SVG for scalable edits</text>
-  <text x="1960" y="1186" class="small">• PNG export for direct PowerPoint embedding</text>
+  <path class="flow-data" d="M 420 795 L 420 1120 L 310 1120"/>
+  <path class="flow-data" d="M 420 795 L 420 1120 L 640 1120"/>
 
-  <text x="1960" y="1235" class="tiny">Note: Icons are represented as labeled service blocks for clean</text>
-  <text x="1960" y="1254" class="tiny">presentation rendering in environments without AWS icon packs.</text>
+  <path class="flow-sec" d="M 2100 1030 L 2200 1030"/>
+
+  <!-- Legend -->
+  <rect x="2150" y="970" width="230" height="270" rx="10" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+  <text x="2170" y="998" class="label">Legend</text>
+  <line x1="2170" y1="1020" x2="2270" y2="1020" class="flow"/><text x="2280" y="1025" class="tiny">API/App traffic</text>
+  <line x1="2170" y1="1050" x2="2270" y2="1050" class="flow-data"/><text x="2280" y="1055" class="tiny">Data flow</text>
+  <line x1="2170" y1="1080" x2="2270" y2="1080" class="flow-sec"/><text x="2280" y="1085" class="tiny">Secure controls/logs</text>
+  <rect x="2170" y="1100" width="26" height="20" class="expose"/><text x="2205" y="1115" class="tiny">Expose</text>
+  <rect x="2170" y="1130" width="26" height="20" class="nonexpose"/><text x="2205" y="1145" class="tiny">NonExpose</text>
+  <rect x="2170" y="1160" width="26" height="20" class="secure"/><text x="2205" y="1175" class="tiny">Secure</text>
 </svg>
