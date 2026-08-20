@@ -162,23 +162,22 @@
   <text x="88" y="1358" class="small">Trusted On-Premises Network via VPN / Direct Connect (GIS data sources &amp; enterprise users)</text>
 
   <!-- Flows -->
-  <path d="M 20 0" stroke="none"/>
-  <path class="flow" d="M 620 570 L 590 570"/>
-  <path class="flow" d="M 330 570 L 300 570"/>
+  <path class="flow" d="M 730 570 L 460 570"/>
+  <path class="flow" d="M 460 570 L 210 570"/>
   <path class="flow" d="M 590 570 L 140 760"/>
   <path class="flow" d="M 590 570 L 400 760"/>
   <path class="flow" d="M 590 570 L 660 760"/>
   <path class="flow-data" d="M 900 760 L 1240 750"/>
   <path class="flow-data" d="M 900 790 L 1240 900"/>
   <path class="flow-data" d="M 900 820 L 1540 750"/>
-  <path class="flow-data" d="M 1540 900 L 1540 900 L 1540 900"/>
+  <path class="flow-data" d="M 1525 900 L 1680 900"/>
   <path class="flow-data" d="M 1680 815 L 1680 835"/>
   <path class="flow-data" d="M 1680 965 L 1680 985"/>
   <path class="flow" d="M 1680 1010 L 900 1010"/>
   <path class="flow-sec" d="M 700 1228 L 780 410"/>
   <path class="flow-sec" d="M 820 1228 L 1450 410"/>
   <path class="flow" d="M 950 1265 L 1300 1265"/>
-  <path class="flow" d="M 500 1335 L 500 1325 L 500 1265"/>
+  <path class="flow" d="M 500 1335 L 500 1265"/>
   <path class="flow-obs" d="M 360 805 L 670 320"/>
   <path class="flow-obs" d="M 520 805 L 974 320"/>
   <path class="flow-obs" d="M 1400 750 L 1126 320"/>
