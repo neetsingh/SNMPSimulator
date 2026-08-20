@@ -141,7 +141,7 @@
 
   <rect x="1540" y="835" width="285" height="130" rx="8" class="analytics"/>
   <text x="1552" y="866" class="label">Amazon Redshift</text>
-  <text x="1552" y="888" class="tiny">Geo-spatial analytics</text>
+  <text x="1552" y="888" class="tiny">Geospatial analytics</text>
   <text x="1552" y="908" class="tiny">S3 warehouse integration</text>
 
   <rect x="1240" y="985" width="285" height="130" rx="8" class="storage"/>
