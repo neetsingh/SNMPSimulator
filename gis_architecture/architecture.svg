@@ -161,26 +161,45 @@
   <rect x="70" y="1335" width="850" height="35" rx="8" class="network"/>
   <text x="88" y="1358" class="small">Trusted On-Premises Network via VPN / Direct Connect (GIS data sources &amp; enterprise users)</text>
 
-  <!-- Elbow flows -->
-  <path class="flow" d="M 730 570 L 640 570 L 640 570 L 460 570"/>
-  <path class="flow" d="M 460 570 L 380 570 L 380 570 L 210 570"/>
-  <path class="flow" d="M 590 570 L 590 620 L 140 620 L 140 760"/>
-  <path class="flow" d="M 590 570 L 590 620 L 400 620 L 400 760"/>
-  <path class="flow" d="M 590 570 L 590 620 L 660 620 L 660 760"/>
-  <path class="flow-data" d="M 900 760 L 1120 760 L 1120 750 L 1240 750"/>
-  <path class="flow-data" d="M 900 790 L 1120 790 L 1120 900 L 1240 900"/>
-  <path class="flow-data" d="M 900 820 L 1200 820 L 1200 750 L 1540 750"/>
-  <path class="flow-data" d="M 1525 900 L 1610 900 L 1610 900 L 1680 900"/>
-  <path class="flow-data" d="M 1680 815 L 1680 835"/>
-  <path class="flow-data" d="M 1680 965 L 1680 985"/>
-  <path class="flow" d="M 1680 1010 L 1200 1010 L 1200 1010 L 900 1010"/>
-  <path class="flow-sec" d="M 700 1228 L 700 1120 L 780 1120 L 780 410"/>
-  <path class="flow-sec" d="M 820 1228 L 820 1120 L 1450 1120 L 1450 410"/>
+  <!-- Elbow flows – corrected connector alignment -->
+  <!-- Public layer: Route 53 left → ALB right (horizontal) -->
+  <path class="flow" d="M 620 570 L 590 570"/>
+  <!-- Public layer: ALB left → Internet Gateway right (horizontal) -->
+  <path class="flow" d="M 330 570 L 300 570"/>
+  <!-- ALB bottom-center → GeoServer Pod A top (elbow down then left) -->
+  <path class="flow" d="M 460 600 L 460 635 L 260 635 L 260 715"/>
+  <!-- ALB bottom-center → GIS API Pod A top (elbow down then right) -->
+  <path class="flow" d="M 460 600 L 460 635 L 520 635 L 520 715"/>
+  <!-- ALB bottom-center → GIS WebApp Pod A top (elbow down then right) -->
+  <path class="flow" d="M 460 600 L 460 635 L 780 635 L 780 715"/>
+  <!-- Service Mesh A right → RDS left (elbow right then align to RDS cy) -->
+  <path class="flow-data" d="M 1150 755 L 1195 755 L 1195 750 L 1240 750"/>
+  <!-- Service Mesh A right → ElastiCache Redis left (elbow right then down) -->
+  <path class="flow-data" d="M 1150 755 L 1195 755 L 1195 900 L 1240 900"/>
+  <!-- Service Mesh A right → S3 left (elbow right then align to S3 cy) -->
+  <path class="flow-data" d="M 1150 755 L 1200 755 L 1200 750 L 1540 750"/>
+  <!-- Redis right → Redshift left (direct horizontal) -->
+  <path class="flow-data" d="M 1525 900 L 1540 900"/>
+  <!-- S3 bottom → Redshift top (direct vertical) -->
+  <path class="flow-data" d="M 1682 815 L 1682 835"/>
+  <!-- Redshift bottom → ECR top (direct vertical) -->
+  <path class="flow-data" d="M 1682 965 L 1682 985"/>
+  <!-- ECR left → Service Mesh B right (elbow left then align to Service Mesh cy) -->
+  <path class="flow" d="M 1540 1050 L 1195 1050 L 1195 1015 L 1150 1015"/>
+  <!-- Security log export: GeoServer A bottom → CloudWatch bottom (elbow up then right) -->
+  <path class="flow-sec" d="M 260 795 L 260 410 L 739 410 L 739 302"/>
+  <!-- Security log export: GIS API A bottom → CloudTrail bottom (elbow up then right) -->
+  <path class="flow-sec" d="M 520 795 L 520 430 L 1043 430 L 1043 302"/>
+  <!-- Transit Gateway internal routing arrow -->
   <path class="flow" d="M 950 1265 L 1300 1265"/>
-  <path class="flow" d="M 500 1335 L 500 1265"/>
-  <path class="flow-obs" d="M 360 805 L 360 640 L 670 640 L 670 320"/>
-  <path class="flow-obs" d="M 520 805 L 520 660 L 974 660 L 974 320"/>
-  <path class="flow-obs" d="M 1400 750 L 1400 640 L 1126 640 L 1126 320"/>
+  <!-- On-Premises top → Transit Gateway bottom -->
+  <path class="flow" d="M 495 1335 L 495 1325"/>
+  <!-- Observability: GeoServer A bottom → CloudWatch bottom (metrics/logs) -->
+  <path class="flow-obs" d="M 260 795 L 260 450 L 670 450 L 670 302"/>
+  <!-- Observability: GIS API A bottom → GuardDuty bottom (threat detection) -->
+  <path class="flow-obs" d="M 520 795 L 520 460 L 891 460 L 891 302"/>
+  <!-- Observability: Service Mesh A top → Security Hub bottom (telemetry) -->
+  <path class="flow-obs" d="M 1035 715 L 1035 450 L 1185 450 L 1185 302"/>
 
   <!-- Right legend -->
   <rect x="1930" y="120" width="590" height="1260" rx="14" fill="#ffffff" stroke="#64748b" stroke-width="2.5"/>
